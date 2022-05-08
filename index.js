@@ -9,7 +9,7 @@ const blogModel = require('./model/blog');
 // export routes 
 const blog = require('./routes/blog.route')
 
-const url = "mongodb+srv://deepu:Gd0MlN8wFbNdY7m4@test.zrldw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" ;
+const url = process.env.DB_URL
 
 const app=express()
 
