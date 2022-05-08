@@ -9,7 +9,7 @@ const blogModel = require('./model/blog');
 // export routes 
 const blog = require('./routes/blog.route')
 
-const url = process.env.DB_URL ;
+const url = "mongodb+srv://deepu:Gd0MlN8wFbNdY7m4@test.zrldw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" ;
 
 const app=express()
 
@@ -28,8 +28,8 @@ app.use(cors({ origin: "*" }));
 
 //connect to mongoDB server
 
- mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology:true})
-const con=mongoose.connection
+ mongoose.connect(url/*, {useNewUrlParser: true, useUnifiedTopology:true}*/)
+const con=mongoose.connection   
 
 con.on('open', () =>{
     console.log('connected.....')
