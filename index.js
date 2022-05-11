@@ -5,9 +5,11 @@ const bodyParser = require('body-parser')
 const cors= require('cors')
 require('dotenv').config()
 const blogModel = require('./model/blog');
+const yogaModel = require('./model/yoga')
 
 // export routes 
 const blog = require('./routes/blog.route')
+const yoga = require('./routes/yoga.route')
 
 const url = process.env.DB_URL
 
@@ -41,6 +43,7 @@ const PORT = process.env.PORT || 3000
 // route define
 
 app.use('/api/blog', blog)
+app.use('/api/yoga', yoga)
 
 
 app.get('/', (req, res) => {
