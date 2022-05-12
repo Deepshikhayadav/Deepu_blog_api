@@ -32,7 +32,7 @@ router.get('/:id', async(req, res) => {
 
         const file = req.file;
        // console.log(file);
-        const {heading, desc } = req.body;
+        const {heading, desc, author } = req.body;
         if(!heading || !desc) {
             return  res.status(400).json({success:false, message:"kindly provide all required fields"})  
         }
@@ -42,6 +42,7 @@ router.get('/:id', async(req, res) => {
         const data = await Blog.create({
             heading:heading,
             desc:desc, 
+            author: author,
             image:fileName
         })
         res.status(201).json({success:true, message:"created successufully", data})
