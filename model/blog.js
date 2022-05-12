@@ -15,11 +15,10 @@ const blogSchema= new mongoose.Schema({
     desc:{
         type:String,
         required:true
-    },
-    date:{
-      type:Number,
-      default:Date.now  
     }
+    
+}, {
+    timestamps:true
 })
  
 
