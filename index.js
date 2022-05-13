@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cors= require('cors')
 require('dotenv').config()
+const path = require('path')
 const blogModel = require('./model/blog');
 const yogaModel = require('./model/yoga')
 
@@ -48,6 +49,13 @@ app.use('/api/yoga', yoga)
 
 app.get('/', (req, res) => {
     res.send('welcome to deepu\'s api')
+})
+
+// SET STATIC FOLDER
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('*', (req,res) => {
+    res.status(400).send('404')
 })
 
 
